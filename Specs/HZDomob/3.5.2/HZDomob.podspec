@@ -18,8 +18,12 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '6.0'
   s.requires_arc = true
 
-  s.resource = "IndependentVideoBundle.bundle"
-  s.vendored_libraries = 'libIndependentVideoSDK.a'
-  s.public_header_files = 'Headers/*.h'
+  s.resource = "domob-#{s.version}/IndependentVideoBundle.bundle"
+  s.vendored_libraries = "domob-#{s.version}/libIndependentVideoSDK.a"
+  s.public_header_files = "domob-#{s.version}/Headers/*.h"
+  s.source_files = "domob-#{s.version}/Headers/*.h"
+
+  s.libraries = ["sqlite3"]
+  s.frameworks = ["MessageUI", "SystemConfiguration", "CoreLocation", "CoreMedia", "AVFoundation", "CFNetwork", "StoreKit", "AdSupport", "CoreTelephony", "CoreGraphics"]
 
 end
